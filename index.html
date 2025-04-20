@@ -1,39 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Solar Consultation - Save on Energy</title>
-  <meta name="description" content="Find out if your home qualifies for $0 out-of-pocket solar. Schedule your free solar consultation and start saving up to 40% on your electric bill." />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Solar Consultation - Save on Energy</title>
 
-<link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <style>
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2100&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      filter: brightness(0.4);
-      z-index: -1;
+    <!-- Updated SEO Meta Tags -->
+    <meta name="description" content="Qualify for $0 down solar in Southern California. Serving homeowners within 60 miles of Riverside, CA. Cut electric bills up to 40% with our free solar consultation." />
+    <meta name="keywords" content="Southern California solar, Riverside solar incentives, Inland Empire solar, $0 down solar California, solar consultation Riverside CA, solar for homeowners in Southern California, net metering CA, solar installation near me" />
+    <meta name="author" content="CalSolar Energy" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://calsolar.energy/" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Free Solar Consultation - Save on Energy" />
+    <meta property="og:description" content="See if your home qualifies for $0 down solar in SoCal. Serving homeowners within 60 miles of Riverside, CA." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calsolar.energy/" />
+    <meta property="og:image" content="https://calsolar.energy/og-preview.jpg" />
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2100&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        filter: brightness(0.4);
+        z-index: -1;
+      }
+    </style>
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "CalSolar Energy",
+      "image": "https://calsolar.energy/og-preview.jpg",
+      "url": "https://calsolar.energy",
+      "priceRange": "$$",
+      "description": "We provide $0 down solar consultations and full-service solar installations for homeowners in Southern California — including Riverside, San Bernardino, Orange County, and surrounding areas. Save up to 40% on your electric bill.",
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 33.9806,
+          "longitude": -117.3755
+        },
+        "geoRadius": 96560
+      },
+      "serviceType": "Solar Energy Consultation and Installation",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Riverside",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "hasMap": "https://www.google.com/maps/place/Riverside,+CA",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ]
     }
-  </style>
-</head>
-<body class="text-white font-sans">
-
+    </script>
+  </head>
 
 <!-- FORM SECTION -->
 <div class="min-h-screen flex items-center justify-center px-4 py-12">
   <div id="form-section" x-data="{
   success: false,
-  name: '', email: '', phone: '', address: '', submitted: false,
+  name: '', email: '', phone: '', address: '', ownership: '', submitted: false,
     isEmailValid() { return /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(this.email); },
     isPhoneValid() { return /^\+?[0-9\s\-]{7,15}$/.test(this.phone); },
     isAddressValid() { return this.address.trim().length >= 5; },
@@ -66,25 +125,50 @@
         </ul>
 
         <div class="flex justify-center space-x-6 mb-6">
-          <a href="/how-it-works.html" class="relative text-green-700 font-medium transition after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-green-600 hover:after:w-full after:transition-all after:duration-300">How It Works</a>
-          <a href="/faq.html" class="relative text-green-700 font-medium transition after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-green-600 hover:after:w-full after:transition-all after:duration-300">FAQs
-          <a href="/BillTool.html" class="relative text-green-700 font-medium transition after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-green-600 hover:after:w-full after:transition-all after:duration-300">
-  Bill Tool
-          </a>
-        </div>
+            <a href="/how-it-works.html" class="relative text-green-700 font-medium transition after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-green-600 hover:after:w-full after:transition-all after:duration-300">How It Works</a>
+            <a href="/faq.html" class="relative text-green-700 font-medium transition after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-green-600 hover:after:w-full after:transition-all after:duration-300">FAQs</a>
+            <a href="/BillTool.html" class="relative text-green-700 font-medium transition after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-green-600 hover:after:w-full after:transition-all after:duration-300">Bill Tool</a>
+            <a href="/solar-incentives-california.html" class="relative text-green-700 font-medium transition after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-green-600 hover:after:w-full after:transition-all after:duration-300">CA Incentives</a>
+          </div>
+          
 
         <form @submit="trySubmit($event)" action="https://formspree.io/f/xzzenjop" method="POST" class="space-y-4" novalidate>
-          <div>
-            <label for="name" class="block text-sm font-medium">Full Name</label>
-            <input x-model="name" type="text" id="name" name="name" required class="mt-1 w-full px-3 py-2 rounded-md border" :class="submitted && !isNameValid() ? 'border-red-500' : isNameValid() ? 'border-green-500' : 'border-gray-300'" />
-            <p class="text-sm text-red-600 mt-1" x-show="submitted && !isNameValid()">Please enter your name (min 2 characters)</p>
-          </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Full Name -->
+                <div>
+                  <label for="name" class="block text-sm font-medium">Full Name</label>
+                  <input x-model="name" type="text" id="name" name="name" required class="mt-1 w-full px-3 py-2 rounded-md border" :class="submitted && !isNameValid() ? 'border-red-500' : isNameValid() ? 'border-green-500' : 'border-gray-300'" />
+                  <p class="text-sm text-red-600 mt-1" x-show="submitted && !isNameValid()">Please enter your name (min 2 characters)</p>
+                </div>
+              
+                <!-- Avg Monthly Bill -->
+                <div>
+                  <label for="bill" class="block text-sm font-medium">Avg. Monthly Bill ($)</label>
+                  <input type="number" id="bill" name="bill" placeholder="e.g. 120" class="mt-1 w-full px-3 py-2 rounded-md border border-gray-300" />
+                </div>
+              </div>
+              
 
-          <div>
-            <label for="email" class="block text-sm font-medium">Email</label>
-            <input x-model="email" type="email" id="email" name="email" required class="mt-1 w-full px-3 py-2 rounded-md border" :class="submitted && !isEmailValid() ? 'border-red-500' : isEmailValid() ? 'border-green-500' : 'border-gray-300'" />
-            <p class="text-sm text-red-600 mt-1" x-show="submitted && !isEmailValid()">Enter a valid email address.</p>
-          </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Email -->
+                <div>
+                  <label for="email" class="block text-sm font-medium">Email</label>
+                  <input x-model="email" type="email" id="email" name="email" required class="mt-1 w-full px-3 py-2 rounded-md border w-full" :class="submitted && !isEmailValid() ? 'border-red-500' : isEmailValid() ? 'border-green-500' : 'border-gray-300'" />
+                  <p class="text-sm text-red-600 mt-1" x-show="submitted && !isEmailValid()">Enter a valid email address.</p>
+                </div>
+              
+                <!-- Homeowner or Renter -->
+                <div>
+                  <label for="ownership" class="block text-sm font-medium">Do you own your home?</label>
+                  <select x-model="ownership" id="ownership" name="ownership" required class="mt-1 w-full px-3 py-2 rounded-md border border-gray-300 text-gray-700">
+                    <option value="">Select</option>
+                    <option value="homeowner">Yes, I own my home</option>
+                    <option value="renter">No, I rent</option>
+                  </select>
+                  <p class="text-sm text-red-600 mt-1" x-show="submitted && ownership === 'renter'">Unfortunately, only homeowners qualify for solar at this time.</p>
+                </div>
+              </div>
+              
 
           <div>
             <label for="address" class="block text-sm font-medium">Address</label>
