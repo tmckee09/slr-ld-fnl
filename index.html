@@ -41,18 +41,10 @@
       <li>✔️ No obligation, fast qualification check</li>
     </ul>
 
-    <!-- 🔗 HOW IT WORKS LINK -->
-    <div class="mb-4 text-center">
-      <a href="/how-it-works.html" class="text-green-600 underline hover:text-green-800 font-semibold">
-        👉 See How It Works
-      </a>
-    </div>
-
-    <!-- 🔗 FAQ LINK -->
-    <div class="mb-6 text-center">
-      <a href="/faq.html" class="text-green-600 underline hover:text-green-800 font-semibold">
-        ❓ Frequently Asked Questions
-      </a>
+    <!-- 🔗 Clean Navigation Links -->
+    <div class="flex justify-center space-x-6 mb-6">
+      <a href="/how-it-works.html" class="text-green-700 hover:text-green-900 font-medium transition">How It Works</a>
+      <a href="/faq.html" class="text-green-700 hover:text-green-900 font-medium transition">FAQs</a>
     </div>
 
     <!-- Alpine Validation Logic -->
@@ -63,7 +55,7 @@
           return /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(this.email);
         },
         isPhoneValid() {
-          return /^\+?[0-9\s\\-]{7,15}$/.test(this.phone);
+          return /^\+?[0-9\s\-]{7,15}$/.test(this.phone);
         },
         isAddressValid() {
           return this.address.trim().length >= 5;
