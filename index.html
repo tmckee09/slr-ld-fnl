@@ -55,19 +55,26 @@
           return /^\+?[0-9\s\-]{7,15}$/.test(this.phone);
         },
         isAddressValid() {
-          return this.address.length >= 5;
+          return this.address.trim().length >= 5;
         },
         isNameValid() {
-          return this.name.length >= 2;
+          return this.name.trim().length >= 2;
         },
         canSubmit() {
           return this.isNameValid() && this.isEmailValid() && this.isPhoneValid() && this.isAddressValid();
+        },
+        trySubmit(event) {
+          this.submitted = true;
+          if (!this.canSubmit()) {
+            event.preventDefault();
+          }
         }
       }"
-      @submit.prevent="submitted = true; if (canSubmit()) $el.submit();"
+      @submit="trySubmit($event)"
       action="https://formspree.io/f/xzzenjop"
       method="POST"
       class="space-y-4"
+      novalidate
     >
 
       <!-- Name -->
