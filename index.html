@@ -73,14 +73,11 @@
             this.submitted = true;
             if (!this.canSubmit()) {
               event.preventDefault();
-            } else {
-              event.preventDefault();
-              this.success = true;
             }
           }
         }"
         @submit="trySubmit($event)"
-        action="#"
+        action="https://formspree.io/f/xzzenjop"
         method="POST"
         class="space-y-4"
         novalidate
