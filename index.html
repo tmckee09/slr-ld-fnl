@@ -50,37 +50,31 @@
   }" class="max-w-2xl w-full bg-gradient-to-br from-white to-gray-200 bg-opacity-95 backdrop-blur-md p-10 rounded-2xl shadow-xl text-gray-800 border border-gray-300">
 
     <style>
-  @keyframes fade-in-down {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+      @keyframes fade-in-down {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-down {
+        animation: fade-in-down 0.8s ease-out both;
+      }
+    </style>
 
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in-down {
-    animation: fade-in-down 0.8s ease-out both;
-  }
-
-  .animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out both;
-  }
-</style>
-
+    <template x-if="!success">
+      <div>
+        <div class="text-center mb-6 animate-fade-in-down">
+          <h1 class="text-3xl md:text-4xl font-extrabold text-green-700 leading-snug">
+            ☀️ $0 Out-of-Pocket Solar?
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-800 mt-2 font-medium">
+            See If You Qualify
+          </p>
+        </div>
 
         <form @submit="trySubmit($event)" action="https://formspree.io/f/xzzenjop" method="POST" class="space-y-4" novalidate>
           <div>
@@ -132,71 +126,6 @@
       </div>
     </template>
 
-    <template x-if="success">
-      <div class="text-center p-6">
-        <div class="text-green-600 text-6xl mb-2">✔️</div>
-        <h2 class="text-2xl font-bold text-green-700 mb-2">You're Booked!</h2>
-        <p class="text-gray-700">We’ve received your consultation request. Our team will follow up with you shortly to confirm the next steps.</p>
-      </div>
-    </template>
-
-        <p class="text-base md:text-lg mb-6">
-          We’re offering <strong>free solar consultations</strong> to homeowners ready to lower their electricity bills by up to <strong>40%</strong>. A local energy specialist will evaluate your home and let you know if you qualify — no obligation, no pressure.
-        </p>
-
-        <ul class="mb-6 list-disc list-inside space-y-2 text-sm text-gray-700">
-          <li>✔️ $0 out-of-pocket options available</li>
-          <li>✔️ Cut electric costs by up to 40%</li>
-          <li>✔️ Free on-site energy consultation</li>
-          <li>✔️ No obligation, fast qualification check</li>
-        </ul>
-
-        <div class="flex justify-center space-x-6 mb-6">
-          <a href="/how-it-works.html" class="relative text-green-700 font-medium transition after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-green-600 hover:after:w-full after:transition-all after:duration-300">How It Works</a>
-          <a href="/faq.html" class="relative text-green-700 font-medium transition after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-green-600 hover:after:w-full after:transition-all after:duration-300">FAQs
-          <a href="/BillTool.html" class="relative text-green-700 font-medium transition after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-green-600 hover:after:w-full after:transition-all after:duration-300">
-  Bill Tool
-          </a>
-        </div>
-
-        <form @submit="trySubmit($event)" action="https://formspree.io/f/xzzenjop" method="POST" class="space-y-4" novalidate>
-          <div>
-            <label for="name" class="block text-sm font-medium">Full Name</label>
-            <input x-model="name" type="text" id="name" name="name" required class="mt-1 w-full px-3 py-2 rounded-md border" :class="submitted && !isNameValid() ? 'border-red-500' : isNameValid() ? 'border-green-500' : 'border-gray-300'" />
-            <p class="text-sm text-red-600 mt-1" x-show="submitted && !isNameValid()">Please enter your name (min 2 characters)</p>
-          </div>
-
-          <div>
-            <label for="email" class="block text-sm font-medium">Email</label>
-            <input x-model="email" type="email" id="email" name="email" required class="mt-1 w-full px-3 py-2 rounded-md border" :class="submitted && !isEmailValid() ? 'border-red-500' : isEmailValid() ? 'border-green-500' : 'border-gray-300'" />
-            <p class="text-sm text-red-600 mt-1" x-show="submitted && !isEmailValid()">Enter a valid email address.</p>
-          </div>
-
-          <div>
-            <label for="address" class="block text-sm font-medium">Address</label>
-            <input x-model="address" type="text" id="address" name="address" required class="mt-1 w-full px-3 py-2 rounded-md border" :class="submitted && !isAddressValid() ? 'border-red-500' : isAddressValid() ? 'border-green-500' : 'border-gray-300'" />
-            <p class="text-sm text-red-600 mt-1" x-show="submitted && !isAddressValid()">Please enter a valid address (min 5 characters).</p>
-          </div>
-
-          <div>
-            <label for="phone" class="block text-sm font-medium">Phone</label>
-            <input x-model="phone" type="tel" id="phone" name="phone" required class="mt-1 w-full px-3 py-2 rounded-md border" :class="submitted && !isPhoneValid() ? 'border-red-500' : isPhoneValid() ? 'border-green-500' : 'border-gray-300'" />
-            <p class="text-sm text-red-600 mt-1" x-show="submitted && !isPhoneValid()">Please enter a valid phone number.</p>
-          </div>
-
-          <button type="submit" class="transition transform hover:scale-105 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md w-full">
-            Schedule My Free Consultation
-          </button>
-        </form>
-
-        <p class="text-xs text-gray-500 mt-4 flex items-center justify-center gap-1">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v2H5a1 1 0 00-1 1v8a1 1 0 001 1h10a1 1 0 001-1v-8a1 1 0 00-1-1h-1V6a4 4 0 00-4-4zM8 6a2 2 0 114 0v2H8V6z" clip-rule="evenodd" />
-          </svg>
-          Your information is secure and will only be used for scheduling your assessment.
-        </p>
-      </div>
-    </template>
     <template x-if="success">
       <div class="text-center p-6">
         <div class="text-green-600 text-6xl mb-2">✔️</div>
