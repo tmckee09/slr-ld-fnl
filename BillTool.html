@@ -3,47 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Solar Savings Calculator - Bill Tool</title>
-  <meta name="description" content="Use our Solar Bill Tool to see how much you can save by going solar. Enter your current monthly electric bill to estimate your potential savings." />
+  <title>Solar Savings Estimator - Bill Tool</title>
+  <meta name="description" content="Find out how much you could save by going solar. Estimate your monthly savings using our Solar Bill Tool." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(270deg, #34d399, #10b981, #059669);
+      background-size: 600% 600%;
+      animation: animateBG 15s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes animateBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-green-100 to-green-50 min-h-screen flex items-center justify-center p-6 font-sans">
+<body class="text-white font-sans flex items-center justify-center min-h-screen">
   <div x-data="{
     bill: '',
-    savings: null,
     message: '',
-    calculateSavings() {
-      const amount = parseFloat(this.bill);
-      if (isNaN(amount) || amount <= 0) {
-        this.message = '⚠️ Please enter a valid number.';
-        this.savings = null;
+    calculate() {
+      const value = parseFloat(this.bill);
+      if (isNaN(value) || value < 0) {
+        this.message = '⚠️ Please enter a valid monthly bill amount.';
         return;
       }
-      if (amount < 95) {
-        this.message = 'This program may not offer significant savings at your current energy bill level.';
-        this.savings = null;
-        return;
+      if (value >= 95) {
+        const savings = (value * 0.3982).toFixed(2);
+        this.message = `✅ You can save up to $${savings} per month!`;
+      } else {
+        this.message = 'ℹ️ This program typically benefits bills over $100/month.';
       }
-      this.savings = (amount * 0.3982).toFixed(2);
-      this.message = `You could save up to $${this.savings}/month — that’s $${(this.savings * 12).toFixed(0)} per year!`;
     }
-  }" class="max-w-xl w-full bg-white rounded-2xl p-8 shadow-xl border text-gray-800">
-    <h1 class="text-3xl font-bold text-green-700 mb-4">🔍 Solar Savings Estimator</h1>
-    <p class="mb-6">Enter your average monthly electricity bill below to find out if going solar could save you money.</p>
+  }" class="max-w-lg w-full p-8 bg-white bg-opacity-90 rounded-xl shadow-xl text-center text-gray-800">
+    <h1 class="text-3xl font-bold text-green-700 mb-4">Solar Savings Estimator</h1>
+    <p class="text-base mb-6">Enter your average monthly electric bill to see if you qualify for savings.</p>
 
-    <div class="space-y-4">
-      <label for="bill" class="block text-sm font-medium">Your Monthly Electric Bill ($)</label>
-      <input x-model="bill" @input="calculateSavings" type="number" id="bill" name="bill" placeholder="e.g. 150" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-green-400">
-
-      <template x-if="message">
-        <div class="mt-4 text-lg font-semibold text-green-700" x-text="message"></div>
-      </template>
-
-      <template x-if="savings">
-        <a href="/index.html#form-section" class="inline-block mt-6 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md transition">See If You Qualify</a>
-      </template>
+    <div class="mb-4">
+      <input x-model="bill" type="number" placeholder="Monthly Electric Bill ($)" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500" />
     </div>
+    <button @click="calculate" class="w-full py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-md transition">Calculate Savings</button>
+
+    <p class="mt-4 text-lg font-medium" x-text="message"></p>
+
+    <a href="/index.html#form-section" class="mt-6 inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-md transition">See If You Qualify</a>
+
+    <a href="/index.html" class="mt-4 inline-block bg-gray-200 hover:bg-gray-300 text-green-800 font-semibold py-2 px-6 rounded-md transition">Back to Scheduling</a>
   </div>
 </body>
 </html>
