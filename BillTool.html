@@ -20,12 +20,12 @@
         this.savings = null;
         return;
       }
-      if (amount < 100) {
+      if (amount < 95) {
         this.message = 'This program may not offer significant savings at your current energy bill level.';
         this.savings = null;
         return;
       }
-      this.savings = (amount * 0.4).toFixed(2);
+      this.savings = (amount * 0.3982).toFixed(2);
       this.message = `You could save up to $${this.savings}/month — that’s $${(this.savings * 12).toFixed(0)} per year!`;
     }
   }" class="max-w-xl w-full bg-white rounded-2xl p-8 shadow-xl border text-gray-800">
