@@ -1,105 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Free Solar Consultation - Save on Energy</title>
-    <meta name="description" content="Find out if your home qualifies for $0 out-of-pocket solar. Schedule your free solar consultation and start saving up to 40% on your electric bill." />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <style>
-      body::before {
-        content: "";
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2100&q=80');
-        background-size: cover;
-        background-position: center;
-        filter: brightness(0.4);
-        z-index: -2;
-      }
+<form action="https://formspree.io/f/xzzenjop" method="POST" class="space-y-4" novalidate>
+  <div>
+    <label for="name" class="block text-sm font-medium">Full Name</label>
+    <input type="text" id="name" name="name" required minlength="2" class="mt-1 w-full border rounded-md px-3 py-2" />
+  </div>
 
-      /* Animated birds layer */
-      .birds-layer {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('https://cdn.pixabay.com/animation/2022/11/17/12/19/12-19-16-356_512.gif') center/contain repeat-x;
-        animation: fly 90s linear infinite;
-        opacity: 0.15;
-        z-index: -1;
-        pointer-events: none;
-      }
+  <div>
+    <label for="email" class="block text-sm font-medium">Email</label>
+    <input type="email" id="email" name="email" required
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+      title="Please enter a valid email address (e.g. user@example.com)"
+      class="mt-1 w-full border rounded-md px-3 py-2" />
+  </div>
 
-      @keyframes fly {
-        from { background-position: 0 0; }
-        to { background-position: -3000px 0; }
-      }
-    </style>
-  </head>
-  <body class="text-white font-sans">
+  <div>
+    <label for="address" class="block text-sm font-medium">Address</label>
+    <input type="text" id="address" name="address" required minlength="5"
+      title="Please enter a valid address"
+      class="mt-1 w-full border rounded-md px-3 py-2" />
+  </div>
 
-    <!-- Flying birds -->
-    <div class="birds-layer"></div>
+  <div>
+    <label for="phone" class="block text-sm font-medium">Phone</label>
+    <input type="tel" id="phone" name="phone" required
+      pattern="^\+?[0-9\s\-]{7,15}$"
+      title="Please enter a valid phone number (e.g. 555-123-4567)"
+      class="mt-1 w-full border rounded-md px-3 py-2" />
+  </div>
 
-    <!-- FORM SECTION -->
-    <div class="min-h-screen flex items-center justify-center px-4 py-12">
-      <div class="max-w-2xl w-full bg-white/20 backdrop-blur-lg shadow-2xl border border-white/30 p-10 rounded-2xl text-gray-900">
-        <h1 class="text-3xl md:text-4xl font-bold mb-4 text-green-700 flex items-center">
-          ☀️ $0 Out-of-Pocket Solar? See If You Qualify
-        </h1>
-        <p class="text-base md:text-lg mb-6">
-          We’re offering <strong>free solar consultations</strong> to homeowners ready to lower their electricity bills by up to <strong>40%</strong>. A local energy specialist will evaluate your home and let you know if you qualify — no obligation, no pressure.
-        </p>
-
-        <ul class="mb-6 list-disc list-inside space-y-2 text-sm text-gray-700">
-          <li>✔️ $0 out-of-pocket options available</li>
-          <li>✔️ Cut electric costs by up to 40%</li>
-          <li>✔️ Free on-site energy consultation</li>
-          <li>✔️ No obligation, fast qualification check</li>
-        </ul>
-
-        <form action="https://formspree.io/f/xzzenjop" method="POST" class="space-y-4" novalidate>
-          <div>
-            <label for="name" class="block text-sm font-medium">Full Name</label>
-            <input type="text" id="name" name="name" required class="mt-1 w-full border rounded-md px-3 py-2" />
-          </div>
-          <div>
-            <label for="email" class="block text-sm font-medium">Email</label>
-            <input type="email" id="email" name="email" required
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-              class="mt-1 w-full border rounded-md px-3 py-2" />
-          </div>
-          <div>
-            <label for="address" class="block text-sm font-medium">Address</label>
-            <input type="text" id="address" name="address" required class="mt-1 w-full border rounded-md px-3 py-2" />
-          </div>
-          <div>
-            <label for="phone" class="block text-sm font-medium">Phone</label>
-            <input type="tel" id="phone" name="phone" required
-              pattern="^\+?[0-9\s\-]{7,15}$"
-              class="mt-1 w-full border rounded-md px-3 py-2" />
-          </div>
-
-          <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md w-full">
-            Schedule My Free Consultation
-          </button>
-        </form>
-
-        <p class="text-xs text-gray-100 mt-4">
-          Your information is secure and will only be used for scheduling your assessment.
-        </p>
-      </div>
-    </div>
-
-    <!-- TESTIMONIAL CAROUSEL -->
-    <div class="bg-white bg-opacity-90 py-12 text-gray-800">
-      <div class="max-w-3xl mx-auto px-4">
-        <h2 class="text-2xl font-bold text-center mb-6 text-green-700">What Homeowners Are Saying</h2>
-        <div x-data="{ activeSlide: 0, testimonials: [
-          { name: 'Jessica R.', review: 'The team was friendly and professional. Our energy bill dropped significantly within 2 months!', stars: 5 },
-          { name: 'David T.', review: 'The free consultation was quick, and
+  <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md w-full">
+    Schedule My Free Consultation
+  </button>
+</form>
