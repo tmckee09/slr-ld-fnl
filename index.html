@@ -42,12 +42,9 @@
     </ul>
 
     <!-- Alpine Validation Logic -->
-    <form x-data="{
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        submitted: false,
+    <form 
+      x-data="{
+        name: '', email: '', phone: '', address: '', submitted: false,
         isEmailValid() {
           return /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(this.email);
         },
@@ -81,8 +78,8 @@
       <div>
         <label for="name" class="block text-sm font-medium">Full Name</label>
         <input x-model="name" type="text" id="name" name="name" required
-               class="mt-1 w-full border px-3 py-2 rounded-md"
-               :class="!isNameValid() && submitted ? 'border-red-500' : 'border-gray-300'" />
+          class="mt-1 w-full px-3 py-2 rounded-md border"
+          :class="submitted && !isNameValid() ? 'border-red-500' : isNameValid() ? 'border-green-500' : 'border-gray-300'" />
         <p class="text-sm text-red-600 mt-1" x-show="submitted && !isNameValid()">Please enter your name (min 2 characters)</p>
       </div>
 
@@ -90,8 +87,8 @@
       <div>
         <label for="email" class="block text-sm font-medium">Email</label>
         <input x-model="email" type="email" id="email" name="email" required
-               class="mt-1 w-full border px-3 py-2 rounded-md"
-               :class="!isEmailValid() && submitted ? 'border-red-500' : 'border-gray-300'" />
+          class="mt-1 w-full px-3 py-2 rounded-md border"
+          :class="submitted && !isEmailValid() ? 'border-red-500' : isEmailValid() ? 'border-green-500' : 'border-gray-300'" />
         <p class="text-sm text-red-600 mt-1" x-show="submitted && !isEmailValid()">Enter a valid email address.</p>
       </div>
 
@@ -99,8 +96,8 @@
       <div>
         <label for="address" class="block text-sm font-medium">Address</label>
         <input x-model="address" type="text" id="address" name="address" required
-               class="mt-1 w-full border px-3 py-2 rounded-md"
-               :class="!isAddressValid() && submitted ? 'border-red-500' : 'border-gray-300'" />
+          class="mt-1 w-full px-3 py-2 rounded-md border"
+          :class="submitted && !isAddressValid() ? 'border-red-500' : isAddressValid() ? 'border-green-500' : 'border-gray-300'" />
         <p class="text-sm text-red-600 mt-1" x-show="submitted && !isAddressValid()">Please enter a valid address (min 5 characters).</p>
       </div>
 
@@ -108,13 +105,13 @@
       <div>
         <label for="phone" class="block text-sm font-medium">Phone</label>
         <input x-model="phone" type="tel" id="phone" name="phone" required
-               class="mt-1 w-full border px-3 py-2 rounded-md"
-               :class="!isPhoneValid() && submitted ? 'border-red-500' : 'border-gray-300'" />
+          class="mt-1 w-full px-3 py-2 rounded-md border"
+          :class="submitted && !isPhoneValid() ? 'border-red-500' : isPhoneValid() ? 'border-green-500' : 'border-gray-300'" />
         <p class="text-sm text-red-600 mt-1" x-show="submitted && !isPhoneValid()">Please enter a valid phone number.</p>
       </div>
 
       <button type="submit"
-              class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md w-full">
+        class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md w-full">
         Schedule My Free Consultation
       </button>
     </form>
