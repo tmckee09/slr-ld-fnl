@@ -131,7 +131,7 @@
       { name: 'Sean F.', review: 'I was impressed with the transparency and communication throughout the project. The installation was quick, and the team was respectful of our property.', stars: 5, image: 'https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg' },
       { name: 'Shawn K.', review: 'Choosing this company was the best decision. They provided excellent customer service, and our solar panels are exceeding performance expectations.', stars: 5, image: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg' }
     ] }" class="relative">
-      <div class="h-48 flex items-center justify-center">
+      <div class="min-h-[18rem] flex flex-col items-center justify-center px-4 text-center space-y-4">
         <template x-for="(testimonial, index) in testimonials" :key="index">
           <div x-show="activeSlide === index" class="text-center transition-all duration-500 ease-in-out">
             <img :src="testimonial.image" alt="Reviewer photo" class="mx-auto rounded-full w-16 h-16 object-cover mb-3 border-2 border-green-500">
