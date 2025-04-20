@@ -7,8 +7,23 @@
   <meta name="description" content="Use our Solar Bill Tool to see how much you can save by going solar. Enter your current monthly electric bill to estimate your potential savings." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1584270354949-1f4113a9f1c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2100&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      filter: brightness(0.4);
+      z-index: -1;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-green-100 to-green-50 min-h-screen flex items-center justify-center p-6 font-sans">
+<body class="min-h-screen flex items-center justify-center p-6 font-sans">
   <div x-data="{
     bill: '',
     savings: null,
@@ -28,7 +43,7 @@
       this.savings = (amount * 0.3982).toFixed(2);
       this.message = `You could save up to $${this.savings}/month — that’s $${(this.savings * 12).toFixed(0)} per year!`;
     }
-  }" class="max-w-xl w-full bg-white rounded-2xl p-8 shadow-xl border text-gray-800">
+  }" class="max-w-xl w-full bg-white bg-opacity-90 backdrop-blur-md rounded-2xl p-8 shadow-xl border text-gray-800">
     <h1 class="text-3xl font-bold text-green-700 mb-4">🔍 Solar Savings Estimator</h1>
     <p class="mb-6">Enter your average monthly electricity bill below to find out if going solar could save you money.</p>
 
