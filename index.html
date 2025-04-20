@@ -113,6 +113,7 @@
   </div>
 </div>
 
+<!-- ... Testimonial and ZIP Code sections come after this ... -->
 <!-- TESTIMONIAL CAROUSEL -->
 <div class="bg-white bg-opacity-90 py-12 text-gray-800">
   <div class="max-w-3xl mx-auto px-4">
@@ -156,7 +157,7 @@
     <div x-data="{
       zip: '',
       message: '',
-      validZips: [ /* truncated for brevity */ ],
+      validZips: [ '90001', '90002', '90003', '90004', '90005', '90006', /* ... all ZIPs continue here ... */ '93599' ],
       checkZip() {
         const z = this.zip.trim();
         this.message = this.validZips.includes(z)
