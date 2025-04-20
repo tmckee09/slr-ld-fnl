@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Free Solar Consultation - Save on Energy</title>
   <meta name="description" content="Find out if your home qualifies for $0 out-of-pocket solar. Schedule your free solar consultation and start saving up to 40% on your electric bill." />
-  <meta property="og:title" content="Free Solar Consultation - Save on Energy">
-  <meta property="og:description" content="Find out if your home qualifies for $0 out-of-pocket solar.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-  <meta property="og:type" content="website">
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style>
@@ -25,26 +21,13 @@
       filter: brightness(0.4);
       z-index: -1;
     }
-    a.relative::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #16a34a;
-      transition: width 0.3s ease-in-out;
-    }
-    a.relative:hover::after {
-      width: 100%;
-    }
   </style>
 </head>
 <body class="text-white font-sans">
 
 <!-- FORM SECTION -->
 <div class="min-h-screen flex items-center justify-center px-4 py-12">
-  <div x-data="{ success: false, loading: false }" class="max-w-2xl w-full bg-gradient-to-br from-white to-gray-200 bg-opacity-95 backdrop-blur-md p-10 rounded-2xl shadow-xl text-gray-800 border border-gray-300">
+  <div x-data="{ success: false }" class="max-w-2xl w-full bg-gradient-to-br from-white to-gray-200 bg-opacity-95 backdrop-blur-md p-10 rounded-2xl shadow-xl text-gray-800 border border-gray-300">
     <template x-if="!success">
     <div>
       <h1 class="text-3xl md:text-4xl font-bold mb-4 text-green-700 flex items-center">
@@ -63,8 +46,8 @@
 
       <!-- 🔗 Clean Navigation Links with underline animation -->
       <div class="flex justify-center space-x-6 mb-6">
-        <a href="/how-it-works.html" class="relative text-green-700 font-medium transition">How It Works</a>
-        <a href="/faq.html" class="relative text-green-700 font-medium transition">FAQs</a>
+        <a href="/how-it-works.html" class="relative text-green-700 font-medium transition after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-green-600 hover:after:w-full after:transition-all after:duration-300">How It Works</a>
+        <a href="/faq.html" class="relative text-green-700 font-medium transition after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-green-600 hover:after:w-full after:transition-all after:duration-300">FAQs</a>
       </div>
 
       <!-- Alpine Validation Logic -->
@@ -92,11 +75,7 @@
               event.preventDefault();
             } else {
               event.preventDefault();
-              this.loading = true;
-              setTimeout(() => {
-                this.success = true;
-                this.loading = false;
-              }, 1200);
+              this.success = true;
             }
           }
         }"
@@ -106,38 +85,46 @@
         class="space-y-4"
         novalidate
       >
+
+        <!-- Name -->
         <div>
           <label for="name" class="block text-sm font-medium">Full Name</label>
-          <input x-model="name" type="text" id="name" name="name" required class="mt-1 w-full px-3 py-2 rounded-md border" :class="submitted && !isNameValid() ? 'border-red-500' : isNameValid() ? 'border-green-500' : 'border-gray-300'" />
+          <input x-model="name" type="text" id="name" name="name" required
+            class="mt-1 w-full px-3 py-2 rounded-md border"
+            :class="submitted && !isNameValid() ? 'border-red-500' : isNameValid() ? 'border-green-500' : 'border-gray-300'" />
           <p class="text-sm text-red-600 mt-1" x-show="submitted && !isNameValid()">Please enter your name (min 2 characters)</p>
         </div>
 
+        <!-- Email -->
         <div>
           <label for="email" class="block text-sm font-medium">Email</label>
-          <input x-model="email" type="email" id="email" name="email" required class="mt-1 w-full px-3 py-2 rounded-md border" :class="submitted && !isEmailValid() ? 'border-red-500' : isEmailValid() ? 'border-green-500' : 'border-gray-300'" />
+          <input x-model="email" type="email" id="email" name="email" required
+            class="mt-1 w-full px-3 py-2 rounded-md border"
+            :class="submitted && !isEmailValid() ? 'border-red-500' : isEmailValid() ? 'border-green-500' : 'border-gray-300'" />
           <p class="text-sm text-red-600 mt-1" x-show="submitted && !isEmailValid()">Enter a valid email address.</p>
         </div>
 
+        <!-- Address -->
         <div>
           <label for="address" class="block text-sm font-medium">Address</label>
-          <input x-model="address" type="text" id="address" name="address" required class="mt-1 w-full px-3 py-2 rounded-md border" :class="submitted && !isAddressValid() ? 'border-red-500' : isAddressValid() ? 'border-green-500' : 'border-gray-300'" />
+          <input x-model="address" type="text" id="address" name="address" required
+            class="mt-1 w-full px-3 py-2 rounded-md border"
+            :class="submitted && !isAddressValid() ? 'border-red-500' : isAddressValid() ? 'border-green-500' : 'border-gray-300'" />
           <p class="text-sm text-red-600 mt-1" x-show="submitted && !isAddressValid()">Please enter a valid address (min 5 characters).</p>
         </div>
 
+        <!-- Phone -->
         <div>
           <label for="phone" class="block text-sm font-medium">Phone</label>
-          <input x-model="phone" type="tel" id="phone" name="phone" required class="mt-1 w-full px-3 py-2 rounded-md border" :class="submitted && !isPhoneValid() ? 'border-red-500' : isPhoneValid() ? 'border-green-500' : 'border-gray-300'" />
+          <input x-model="phone" type="tel" id="phone" name="phone" required
+            class="mt-1 w-full px-3 py-2 rounded-md border"
+            :class="submitted && !isPhoneValid() ? 'border-red-500' : isPhoneValid() ? 'border-green-500' : 'border-gray-300'" />
           <p class="text-sm text-red-600 mt-1" x-show="submitted && !isPhoneValid()">Please enter a valid phone number.</p>
         </div>
 
-        <button type="submit" class="relative transition transform hover:scale-105 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md w-full">
-          <span x-show="!loading">Schedule My Free Consultation</span>
-          <span x-show="loading" class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-            </svg>
-          </span>
+        <button type="submit"
+          class="transition transform hover:scale-105 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-md w-full">
+          Schedule My Free Consultation
         </button>
       </form>
 
@@ -153,9 +140,7 @@
     <!-- ✅ Success Message Updated -->
     <template x-if="success">
       <div class="text-center p-6">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-green-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2l4-4m1.414-1.414A9 9 0 1121 12.586 9 9 0 0112.586 3z" />
-        </svg>
+        <div class="text-green-600 text-6xl mb-2">✔️</div>
         <h2 class="text-2xl font-bold text-green-700 mb-2">You're Booked!</h2>
         <p class="text-gray-700">We’ve received your consultation request. Our team will follow up with you shortly to confirm the next steps.</p>
       </div>
