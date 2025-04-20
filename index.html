@@ -49,16 +49,38 @@
     }
   }" class="max-w-2xl w-full bg-gradient-to-br from-white to-gray-200 bg-opacity-95 backdrop-blur-md p-10 rounded-2xl shadow-xl text-gray-800 border border-gray-300">
 
-    <template x-if="!success">
-      <div>
-        <div class="text-center mb-6">
-          <h1 class="text-3xl md:text-4xl font-extrabold text-green-700 leading-snug">
-            $0 Out-of-Pocket Solar?
-          </h1>
-          <p class="text-xl md:text-2xl text-gray-800 mt-2 font-medium">
-            See If You Qualify
-          </p>
-        </div>
+    <style>
+  @keyframes fade-in-down {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-down {
+    animation: fade-in-down 0.8s ease-out both;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out both;
+  }
+</style>
+
 
         <form @submit="trySubmit($event)" action="https://formspree.io/f/xzzenjop" method="POST" class="space-y-4" novalidate>
           <div>
