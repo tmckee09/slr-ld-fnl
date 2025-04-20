@@ -41,6 +41,13 @@
       <li>✔️ No obligation, fast qualification check</li>
     </ul>
 
+    <!-- 🔗 HOW IT WORKS LINK -->
+    <div class="mb-6 text-center">
+      <a href="/how-it-works.html" class="text-green-600 underline hover:text-green-800 font-semibold">
+        👉 See How It Works
+      </a>
+    </div>
+
     <!-- Alpine Validation Logic -->
     <form 
       x-data="{
@@ -49,7 +56,7 @@
           return /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(this.email);
         },
         isPhoneValid() {
-          return /^\+?[0-9\s\-]{7,15}$/.test(this.phone);
+          return /^\+?[0-9\s\\-]{7,15}$/.test(this.phone);
         },
         isAddressValid() {
           return this.address.trim().length >= 5;
