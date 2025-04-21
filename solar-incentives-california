@@ -12,8 +12,8 @@
 <body class="bg-white text-gray-800">
 
   <!-- Hero Section with Background Image -->
-  <section class="relative text-center text-white">
-    <div class="absolute inset-0 bg-[url('https://static.wixstatic.com/media/72a472_97b30a5c3c384a48880756789440bf16~mv2.png/v1/fill/w_990,h_743,al_c,q_90/72a472_97b30a5c3c384a48880756789440bf16~mv2.png')] bg-cover bg-center brightness-75"></div>
+<section class="relative text-center text-white">
+  <div class="absolute inset-0 bg-[url(https://static.wixstatic.com/media/72a472_97b30a5c3c384a48880756789440bf16~mv2.png/v1/fill/w_990,h_743,al_c,q_90/72a472_97b30a5c3c384a48880756789440bf16~mv2.png)] bg-cover bg-center brightness-75"></div>
     <div class="relative z-10 p-6 md:p-12">
       <h1 class="text-3xl md:text-5xl font-bold mb-4">2025 California Solar Incentives</h1>
       <p class="text-lg md:text-xl max-w-2xl mx-auto mb-6">See if you qualify for $0-down solar programs and maximize your savings with state & federal rebates.</p>
